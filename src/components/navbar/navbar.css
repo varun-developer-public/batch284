@@ -1,0 +1,22 @@
+.navbar{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    column-gap: 22%;
+}
+.navlist{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+img{
+    height: 30px;
+}
+.nav-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
