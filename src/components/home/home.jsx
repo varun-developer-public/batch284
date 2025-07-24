@@ -1,20 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from '../navbar/navbar'
 import './home.css'
-function Home() {
-    let [username,setUsername] = useState("varun")
-    console.log(username);
-    
-    setUsername("kumar")
-    console.log(username);
+import MovieCard from '../moviecard';
 
+function Home() {
+     let [movieName,setMovieName] = useState(0)
+
+     useEffect(()=>{
+      setInterval(()=>{
+        setMovieName(movieName+ 1)
+      },2000)
+
+      return () => {
+        clearInterval();
+      }
+     },[movieName])
   return (
     <>
     <div className="home">
         <NavBar link1={"cejbe"} link2="gallery"/>
-        <NavBar link1="Register" link2="contact"/>
-        <NavBar link1="Contact" link2="link"/>
-        <NavBar/>
+        { movieName }
+          <button>change </button>
+        <div className='movie-cards'>
+          {/* <MovieCard/> */}
+        </div>
     </div>
     </>
   )
