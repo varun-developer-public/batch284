@@ -1,5 +1,6 @@
 import './navbar.css'
 import logo from '../../assets/images/logo.png'
+import { Link } from 'react-router-dom';
 let NavBar = ({link1="default",link2="default"})=> {
 
  let linkName = ["Home","Contact","Gallery","Login"]
@@ -14,14 +15,13 @@ let NavBar = ({link1="default",link2="default"})=> {
             <img src={logo} alt="logo"/>
            </div>
             <ul className='navlist'>
-                {
 
-                    linkName.map((index,items)=>{
-                        return(
-                            <li key={index}><a href={`https://${url}.com`} className='nav-items'>{link1}</a></li>
-                        )
-                })
-                }
+                <Link to="/">Home</Link>
+                <Link to="/forms">Form</Link>
+                <Link to="/gallery">Gallery</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/contact">Contact</Link>
+                <Link to="/about">About</Link>
             </ul>
         </nav>    
     </>

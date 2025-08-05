@@ -3,6 +3,27 @@ import React, { useState } from "react";
 function Formss() {
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(!formData.fullname || !formData.email || !formData.password) {
+      setIsValid(false);
+      return;
+    }
+    localStorage.setItem("formData", JSON.stringify(formData));
+    setFormData({
+      fullname: "",
+      email: "",
+      password: "",
+      gender: "",
+      terms: {
+        terms: false,
+        policy: false,
+        news: false,
+      },
+    });
+    setIsValid(true);
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 3000);
     console.log("Form submitted!");
   };
 
@@ -19,6 +40,7 @@ function Formss() {
   });
 
   const [isValid, setIsValid] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (event) => {
     // setFormData({
@@ -27,7 +49,19 @@ function Formss() {
     // })
     const { name, value } = event.target;
     if (name === "email") {
-      if (!value.includes("@") || !value.includes(".")) {
+      if (value.includes("@") && value.includes(".")) {
+        setIsValid(true);
+      } else {
+        setIsValid(false);
+      }
+    }else if (name === "fullname") {
+      if (value.trim() === "") {
+        setIsValid(false);  
+      } else {
+        setIsValid(true);
+      }
+    } else if (name === "password") {
+      if (value.length < 6) {
         setIsValid(false);
       } else {
         setIsValid(true);
@@ -68,6 +102,8 @@ function Formss() {
           value={formData.fullname}
           onChange={handleChange}
         />
+        {!isValid && <p style={{ color: "red" }}>Name is required.</p>}
+
         <br />
         <br />
         <label>Email Address</label>
@@ -89,6 +125,8 @@ function Formss() {
           value={formData.password}
           onChange={handleChange}
         />
+        {!isValid && <p style={{ color: "red" }}>Pass is required.</p>}
+
         <br />
         <br />
         <label>Gender</label>
@@ -150,6 +188,7 @@ function Formss() {
         <br />
         <br />
         <button type="submit">Register</button>
+        {isSubmitted && <p>Form submitted successfully!</p>}
       </form>
     </>
   );

@@ -1,10 +1,12 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Home from './components/home/home'
-import Formss from './components/forms/forms'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
   <>
-    <Formss/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </>
 )

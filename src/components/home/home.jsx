@@ -4,28 +4,33 @@ import homecss from './home.module.css'
 import Greet from '../greet/greet';
 import styled from 'styled-components';
 
-const Button = styled.button`
-  background-color: red;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: ${10+10}px;
-  cursor: pointer;
-  &:hover {
-    background-color: darkred;
-  }
-  &:active {
-    background-color: maroon;
-  }
-    transition: background-color 0.3s ease;
-  font-size: 16px;
-  `
+// const Button = styled.button`
+//   background-color: red;
+//   color: white;
+//   padding: 10px;
+//   border: none;
+//   border-radius: ${10+10}px;
+//   cursor: pointer;
+//   &:hover {
+//     background-color: darkred;
+//   }
+//   &:active {
+//     background-color: maroon;
+//   }
+//     transition: background-color 0.3s ease;
+//   font-size: 16px;
+//   `
 
 function Home() {
-  console.log(homecss)
+  // console.log(homecss)
   return (
     <>
-    <button className='text-2xl font-bold underline'>click</button>
+
+
+
+
+    Home Page
+    {/* <button className='text-2xl font-bold underline'>click</button>
     <Button>Click Me</Button>
     <div className={homecss.home && 'home-bg'}>
 
@@ -33,10 +38,10 @@ function Home() {
           <NavBar link1={"cejbe"} link2="gallery"/>
           <Greet />
           <button>change </button>
-        <div className='movie-cards'>
+        <div className='movie-cards'> */}
           {/* <MovieCard/> */}
-        </div>
-    </div>
+        {/* </div>
+    </div> */}
     </>
   )
 }
